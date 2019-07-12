@@ -73,7 +73,7 @@ for repo in `find . -type d -name "*.git"`;do
   echo [gdrive backup] directory - ${REPO_BASE}/${repo}
   cd ${REPO_BASE}/${repo}
   echo "[gdrive backup] Check last commit timestamp"
-  lastCommitTime=`git log -1 --pretty=format:%ct`
+  lastCommitTime=`git for-each-ref --sort=-committerdate refs/heads/ --format="%(committerdate:format:%s)" | head -1`
   lastCommitTimeFile="${GDRIVE_WORK_DIR}/${repoName}.lastbackuptime"
   if [ -f "${lastCommitTimeFile}" ];then
     lastBackupTime=`cat ${lastCommitTimeFile}`
