@@ -2,7 +2,7 @@
 
 set -e
 
-GDRIVE_SERVICE='http://gdrive-service:9000'
+GDRIVE_SERVICE="http://${GDRIVE_SERVER}:9000"
 REPO_BASE="/repos"
 GDRIVE_WORK_DIR="/tmp/gdrive"
 SKIP_REPOS="" # space delimited repo names
