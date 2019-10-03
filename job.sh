@@ -50,7 +50,7 @@ function uploadFile {
 function cleanOldFiles {
   echo "[gdrive backup] clean old files in gdrive"
   # tail -n +<number> skip number of lines
-  echo "${file_list}" | grep ${1} | sort | tail -n +8 | while read l
+  echo "${file_list}" | grep ${1} | sort -r | tail -n +7 | while read l
   do
     local fileId=$(echo $l | cut -d' ' -f2)
     curl -s -X 'DELETE' ${GDRIVE_SERVICE}/${fileId}
